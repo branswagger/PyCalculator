@@ -126,10 +126,12 @@ class calculatorWindow(Gtk.Window):
         button = Gtk.Button.new_with_label("(")
         button.connect("clicked", self.appBtnLbl)
         controllersBox.pack_start(button, True, True, 0)
+        button.set_sensitive(False)
 
         button = Gtk.Button.new_with_label(")")
         button.connect("clicked", self.appBtnLbl)
         controllersBox.pack_start(button, True, True, 0)
+        button.set_sensitive(False)
 
         button = Gtk.Button.new_with_label("=")
         button.connect("clicked", self.btnEquals)
@@ -170,7 +172,7 @@ class calculatorWindow(Gtk.Window):
         stringToCalc = self.getText()
 
         #get solution
-        sSolution = bkgCalc.calculateByString(stringToCalc)
+        sSolution = str(bkgCalc.calculateByString(stringToCalc))
 
         #clear
         self.clear()
