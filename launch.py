@@ -1,5 +1,3 @@
-#pycalc 2
-
 #import
 import calculatorWindow
 
