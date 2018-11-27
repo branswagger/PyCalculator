@@ -6,28 +6,25 @@ class backgroundCalculator():
     def solveEquation(self, equation):
         lsModifers = ["*", "+", "-", "/"]
 
-        solution = 0
-
-        curFirstInt = None
-        curSecondInt = None
+        solution = None
+        
         curMod = ""
         for variable in equation.variableList:
             if variable.variable not in lsModifers:
-                if curFirstInt == None:
-                    curFirstInt = int(variable.variable)
+                if solution == None:
+                    solution = int(variable.variable)
                 else:
-                    curSecondInt = int(variable.variable)
+                    curInt = int(variable.variable)
+                    if curMod == "+":
+                        solution = solution  + curInt
+                    elif curMod == "-":
+                        solution = solution  - curInt
+                    elif curMod == "*":
+                        solution = solution  * curInt
+                    elif curMod == "/":
+                        solution = solution  / curInt
             else:
                 curMod = variable.variable
-
-        if curMod == "+":
-            solution = curFirstInt + curSecondInt
-        elif curMod == "-":
-            solution = curFirstInt - curSecondInt
-        elif curMod == "*":
-            solution = curFirstInt * curSecondInt
-        elif curMod == "/":
-            solution = curFirstInt / curSecondInt
 
         return solution
 
